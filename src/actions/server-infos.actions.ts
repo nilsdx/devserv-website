@@ -23,6 +23,7 @@ export async function getServerInfos(): Promise<ServerSummary> {
 
       return {
         ...g,
+        Name: String(g.Name.substring(2)),
         Quest: questName,
       };
     }) ?? [],
