@@ -13,7 +13,7 @@ const ServerStatus = async () => {
     clients.filter(c => c.LobbyID === gameID);
 
   return (
-    <div>
+    <div className="w-[15%]">
       <p>Player Count: {serverInfos.Server.ClientCount ?? 'Unavailable'}</p>
       <p>{serverInfos.Server.GameCount > 0 ? serverInfos.Server.GameCount : 'No'} {serverInfos.Server.GameCount > 1 ? 'games' : 'game'} active</p>
       {serverInfos.Games.map((g) => (
