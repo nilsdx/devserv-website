@@ -10,11 +10,21 @@ export async function getServerInfos(): Promise<ServerSummary> {
 
   return {
     ...json,
-    Games: json.Games?.map((g: any): PSOGame => ({
-      ...g,
-      // L'objet Quest est transformé en un simple number
-      Name: String(g.Name.substring(2)),
-      Quest: Number(g.Quest?.Metadata?.Number ?? g.Quest?.Number ?? 0),
-    })) ?? [],
+    Games: json.Games?.map((g: any): PSOGame => {
+      const questName =
+        g.Quest?.Versions?.find(
+          (v: any) => v.Language === process.env.PSO_LANGUAGE && v.Version === process.env.PSO_VERSION // If this ever changes, I'll cry
+        )?.Name ??
+        g.Quest?.Versions?.find(
+          (v: any) => v.Language === process.env.PSO_LANGUAGE
+        )?.Name ??
+        g.Quest?.Versions?.[0]?.Name ?? // Fallback, hopefully we never get here
+        "Unknown quest";
+
+      return {
+        ...g,
+        Quest: questName,
+      };
+    }) ?? [],
   };
 }

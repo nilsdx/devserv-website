@@ -27,7 +27,7 @@ export interface PSOGame {
   SectionID: string;
   Mode: string;
   Difficulty: string;
-  Quest: number;
+  Quest: string;
 }
 
 export interface PSOClient {
