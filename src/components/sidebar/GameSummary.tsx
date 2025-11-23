@@ -2,6 +2,7 @@
 
 import { PSOClient, PSOGame } from "@/src/types/server-summary";
 import React, { useState } from "react";
+import SectionID from "../SectionID";
 
 interface GameSummaryProps {
     game: PSOGame
@@ -12,17 +13,21 @@ const GameSummary: React.FC<GameSummaryProps> = ({game, party}) => {
     const [open, setOpen] = useState<boolean>(false);
 
     return (
-        <div className="border border-white">
+        <div className="border border-white px-1">
             <button
                 onClick={() => setOpen(o => !o)}
-                className="text-left w-full"
+                className="w-full flex justify-between"
             >
-                {game.Name}
+                <div>{game.Name}</div>
+                <div>{open ? 'v' : '>'}</div>
             </button>
 
             {open && (
                 <div className="mt-1">
-                    <p>{game.QuestInProgress ? game.Quest : "*Free roam"}</p>
+                    <div className="flex gap-x-2">
+                        <p>{game.QuestInProgress ? game.Quest : "*Free roam"}</p>
+                        <SectionID id={game.SectionID}/>
+                    </div>
 
                     {party.map(c => (
                         <p key={c.ID}>{c.Name} - Lv{c.Level}</p>
