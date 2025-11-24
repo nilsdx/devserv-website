@@ -22,6 +22,7 @@ const ServerStatus = async () => {
         <p>Player Count: {serverInfos.Server.ClientCount ?? 'Unavailable'}</p>
         <p>{serverInfos.Server.GameCount > 0 ? serverInfos.Server.GameCount : 'No'} {serverInfos.Server.GameCount > 1 ? 'games' : 'game'} active</p>
       </div>
+      <hr/>
       <div className="mt-2 max-h-full overflow-y-auto space-y-2 pr-2">
         {serverInfos.Games.map((g, i) => (
           <GameSummary
