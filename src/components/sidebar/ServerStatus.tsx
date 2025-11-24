@@ -13,12 +13,20 @@ const ServerStatus = async () => {
     clients.filter(c => c.LobbyID === gameID);
 
   return (
-    <div className="w-[15%]">
-      <p>Player Count: {serverInfos.Server.ClientCount ?? 'Unavailable'}</p>
-      <p>{serverInfos.Server.GameCount > 0 ? serverInfos.Server.GameCount : 'No'} {serverInfos.Server.GameCount > 1 ? 'games' : 'game'} active</p>
-      {serverInfos.Games.map((g) => (
-        <GameSummary game={g} key={g.Name} party={getClientsInGame(g.ID, serverInfos.Clients)}/>
-      ))}
+    <div className="w-[15%] h-screen overflow-hidden bg-white text-black">
+      <div>
+        <p>Player Count: {serverInfos.Server.ClientCount ?? 'Unavailable'}</p>
+        <p>{serverInfos.Server.GameCount > 0 ? serverInfos.Server.GameCount : 'No'} {serverInfos.Server.GameCount > 1 ? 'games' : 'game'} active</p>
+      </div>
+      <div className="mt-2 max-h-full overflow-y-auto space-y-2 pr-2">
+        {serverInfos.Games.map((g, i) => (
+          <GameSummary
+            key={`game-${i}`}
+            game={g}
+            party={getClientsInGame(g.ID, serverInfos.Clients)}
+          />
+        ))}
+      </div>
     </div>
   );
 }
