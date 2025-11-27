@@ -6,7 +6,9 @@ interface ClassIconProps {
 }
 
 const SectionID: React.FC<ClassIconProps> = ({id, size}) => {
-    if (id in ['Viridia', 'Greenill', 'Skyly', 'Bluefull', 'Purplenum', 'Pinkal', 'Redria', 'Oran', 'Yellowboze', 'Whitill']) return (
+    const sectionIds = ['Viridia', 'Greennill', 'Skyly', 'Bluefull', 'Purplenum', 'Pinkal', 'Redria', 'Oran', 'Yellowboze', 'Whitill'];
+
+    if (!sectionIds.includes(id)) return (
         <p>?</p>
     )
     
