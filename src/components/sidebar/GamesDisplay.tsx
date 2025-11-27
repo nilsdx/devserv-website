@@ -12,7 +12,7 @@ const GameDisplay: React.FC<GameDisplayProps> = ({serverInfos}) => {
         clients.filter(c => c.LobbyID === gameID);
 
     return (
-        <div className="mt-2 max-h-full overflow-y-auto space-y-2 pr-2">
+        <div className="mt-2 max-h-full overflow-y-auto space-y-2 px-2">
             {serverInfos.Games.map((g, i) => (
                 <GameSummary
                     key={`game-${i}`}

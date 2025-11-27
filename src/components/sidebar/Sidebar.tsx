@@ -13,7 +13,6 @@ const Sidebar: React.FC = async () => {
     <div className="w-[15%] h-screen overflow-hidden bg-white text-black">
       <ServerLogo/>
       <ServerStatus serverInfos={serverInfos}/>
-      <hr/>
       <GameDisplay serverInfos={serverInfos}/>
     </div>
   );
