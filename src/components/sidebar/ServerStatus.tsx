@@ -10,8 +10,8 @@ interface ServerStatusProps {
 const ServerStatus: React.FC<ServerStatusProps> = ({serverInfos}) => {
 
     return (
-        <div>
-            <p>Player Count: {serverInfos.Server.ClientCount ?? 'Unavailable'}</p>
+        <div className="flex justify-around">
+            <p>{serverInfos.Server.ClientCount ?? 'Unavailable'} players online</p>
             <p>{serverInfos.Server.GameCount > 0 ? serverInfos.Server.GameCount : 'No'} {serverInfos?.Server.GameCount > 1 ? 'games' : 'game'} active</p>
         </div>
     );
