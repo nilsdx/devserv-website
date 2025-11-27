@@ -19,7 +19,7 @@ const GameSummary: React.FC<GameSummaryProps> = ({game, party}) => {
         <div className="bg-gray-200 px-1">
             <button
                 onClick={() => setOpen(o => !o)}
-                className="w-full flex justify-between"
+                className="w-full flex justify-between cursor-pointer"
             >
                 <div className="flex gap-2 items-center">
                     {game.HasPassword && (
