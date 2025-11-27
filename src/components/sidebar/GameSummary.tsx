@@ -20,6 +20,9 @@ const GameSummary: React.FC<GameSummaryProps> = ({game, party}) => {
                 className="w-full flex justify-between"
             >
                 <div className="flex gap-2">
+                    {game.HasPassword && (
+                        <p>L</p>
+                    )}
                     <p>{game.Name}</p>
                     <p>{game.Players}/4</p>
                 </div>
@@ -37,9 +40,9 @@ const GameSummary: React.FC<GameSummaryProps> = ({game, party}) => {
                     </div>
 
                     {party.map(c => (
-                        <div key={c.ID} className="flex justify-between">
+                        <div key={c.ID} className="flex justify-between items-center">
                             <p>{c.Name} - Lv{c.Level}</p>
-                            <ClassIcon character={c.Class} size={80}/>
+                            <ClassIcon character={c.Class}/>
                         </div>
                         
                     ))}
