@@ -9,7 +9,7 @@ Clone the project, then install all dependencies
 npm i
 ```
 
-Copy and edit `.env.example` with the desired parameters, then run the development server
+Make sure you have newserv running with an HTTP server port configured, then copy and edit `.env.example` with the desired parameters, then run the development server
 
 ```bash
 npm run dev
@@ -17,5 +17,5 @@ npm run dev
 
 ## Credits
 
-[newserv](https://github.com/fuzziqersoftware/newserv)
-[Section ID vectors by Draia436 (with color fixes to match the in-game ones)](https://www.deviantart.com/draia436/art/Vector-PSO-Section-IDs-By-Draia436-451383438)
+- [newserv](https://github.com/fuzziqersoftware/newserv)
+- [Section ID vectors by Draia436 (with color fixes to match the in-game ones)](https://www.deviantart.com/draia436/art/Vector-PSO-Section-IDs-By-Draia436-451383438)
