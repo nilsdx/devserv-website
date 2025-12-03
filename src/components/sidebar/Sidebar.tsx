@@ -8,14 +8,21 @@ import ServerStatus from "./ServerStatus";
 import SidebarNavigation from "./SiderbarNavigation";
 
 const Sidebar: React.FC = async () => {
-    const serverInfos: ServerSummary = await getServerInfos();
+    const serverInfos: ServerSummary|null = await getServerInfos();
 
     return (
         <div className="w-[15%] h-screen overflow-hidden bg-white text-black">
             <ServerLogo />
             <SidebarNavigation/>
-            <ServerStatus serverInfos={serverInfos} />
-            <GameDisplay serverInfos={serverInfos} />
+            {serverInfos ? (
+                <>
+                    <ServerStatus serverInfos={serverInfos} />
+                    <GameDisplay serverInfos={serverInfos} />
+                </>
+            ) : (
+                <p className="text-center">Server is currently offline</p>
+            )}
+            
         </div>
     );
 }
